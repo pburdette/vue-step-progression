@@ -5,8 +5,7 @@
       v-for="step in steps" 
       :key="step"
       :style="calculateStepColor(step)"
-      :v-model="currentStep + step"
-      @click="stepClick" 
+      :v-model="currentStep + step" 
       class="step">
     </div>
   </div>
@@ -19,7 +18,7 @@ export default {
   props: {
     steps: {
       type: Number,
-      required: true
+      default: 3
     },
     currentStep: {
       type: Number,
@@ -32,9 +31,6 @@ export default {
     defaultColor: {
       type: String,
       default: '#e7eaf0'
-    },
-    stepClick: {
-      type: Function
     }
   },
 
