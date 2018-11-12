@@ -5,6 +5,11 @@
 
 ``` npm i vue-step-progression ```
 
+
+## See the demo
+Coming soon...
+
+
 ## Basic Usage
 
 ```vue
