@@ -1,14 +1,17 @@
 <template>
-  <div class="steps">
-    <div class="steps-line"></div>
-    <div 
-      v-for="step in steps" 
-      :key="step"
-      :style="calculateStepColor(step)"
-      :v-model="currentStep + step" 
-      class="step">
+  <section>
+    <div class="steps">
+      <div class="steps-line"></div>
+      <div 
+        v-for="step in steps" 
+        :key="step"
+        :style="calculateStepColor(step)"
+        :v-model="currentStep + step" 
+        class="step">
+      </div>
     </div>
-  </div>
+    <slot></slot>
+  </section>
 </template>
 
 <script>
