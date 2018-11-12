@@ -1,15 +1,19 @@
 <template>
   <section>
     <div class="steps">
-      <div class="steps-line"></div>
+      <div class="steps-line" :style="{backgroundColor: defaultColor}">
+        <div ref="stepProgressionLine" class="step-progression-line"></div>
+      </div>
       <div 
         v-for="step in steps" 
         :key="step"
         :style="calculateStepColor(step)"
         :v-model="currentStep + step" 
+        :class="`step${step}`"
         class="step">
       </div>
     </div>
+    <button @click="increaseStep()" type="button">Increase Step</button>
   </section>
 </template>
 
@@ -20,7 +24,7 @@ export default {
   props: {
     steps: {
       type: Number,
-      default: 3
+      default: 5
     },
     currentStep: {
       type: Number,
@@ -36,16 +40,48 @@ export default {
     }
   },
 
+  data() {
+    return {
+      widthInPercent: ""
+    }
+  },
+
   methods: {
     calculateStepColor(step) {
-      if (step === this.currentStep) {
+      if (step === this.currentStep || this.currentStep > step) {
         return {
-          backgroundColor: this.currentStepColor 
+          backgroundColor: this.currentStepColor
         }
       } else {
         return {
-          backgroundColor: this.defaultColor
+          backgroundColor: this.defaultColor 
         }
+      }
+      
+    },
+    increaseStep() {
+      this.currentStep++
+    }
+  },
+
+  computed: {
+    calculateStepPercentage() {
+      return 100 / (this.steps - 1)
+    }
+  },
+
+  watch: {
+    currentStep(currentStep, prevStep) {
+      let intialWidth = this.calculateStepPercentage
+
+      // all use cases should start on step 1, so we can do first width increase here
+      if ((prevStep + 1) === 2) {
+          this.$refs.stepProgressionLine.style = `width: ${intialWidth}%`
+          // increase intialWidth by itself after first step change
+          this.widthInPercent = intialWidth + intialWidth
+      } else {
+        this.$refs.stepProgressionLine.style = `width: ${this.widthInPercent}%`
+        this.widthInPercent = this.widthInPercent + intialWidth
       }
     }
   }
@@ -65,7 +101,14 @@ export default {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #e8eaf1;
+}
+
+.step-progression-line {
+  position: absolute;
+  top: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: #1c61b2;
 }
 
 .step {
