@@ -1,6 +1,6 @@
 {
   "name": "vue-step-progression",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/StepProgression.umd.js",
   "module": "dist/StepProgression.esm.js",
