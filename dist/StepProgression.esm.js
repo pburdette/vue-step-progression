@@ -11,6 +11,9 @@
 //
 //
 //
+//
+//
+//
 
 var script = {
   name: 'StepProgression',
@@ -58,19 +61,27 @@ var __vue_render__ = function() {
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c(
-    "div",
-    { staticClass: "steps" },
+    "section",
     [
-      _c("div", { staticClass: "steps-line" }),
+      _c(
+        "div",
+        { staticClass: "steps" },
+        [
+          _c("div", { staticClass: "steps-line" }),
+          _vm._v(" "),
+          _vm._l(_vm.steps, function(step) {
+            return _c("div", {
+              key: step,
+              staticClass: "step",
+              style: _vm.calculateStepColor(step),
+              attrs: { "v-model": _vm.currentStep + step }
+            })
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
-      _vm._l(_vm.steps, function(step) {
-        return _c("div", {
-          key: step,
-          staticClass: "step",
-          style: _vm.calculateStepColor(step),
-          attrs: { "v-model": _vm.currentStep + step }
-        })
-      })
+      _vm._t("default")
     ],
     2
   )
@@ -81,11 +92,11 @@ __vue_render__._withStripped = true;
   /* style */
   var __vue_inject_styles__ = function (inject) {
     if (!inject) { return }
-    inject("data-v-21cfb75c_0", { source: "\n.steps[data-v-21cfb75c] {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n}\n.steps-line[data-v-21cfb75c] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 2px;\n  background-color: #e8eaf1;\n}\n.step[data-v-21cfb75c] {\n  justify-content: center;\n  align-items: center;\n  height: 32px;\n  width: 32px;\n  border-radius: 50%;\n  z-index: 2;\n}\n", map: {"version":3,"sources":["/Users/paytonburdette/Documents/projects/vue-step-progression/src/StepProgression.vue"],"names":[],"mappings":";AAqDA;EACA,mBAAA;EACA,cAAA;EACA,+BAAA;CACA;AAEA;EACA,mBAAA;EACA,SAAA;EACA,QAAA;EACA,SAAA;EACA,YAAA;EACA,0BAAA;CACA;AAEA;EACA,wBAAA;EACA,oBAAA;EACA,aAAA;EACA,YAAA;EACA,mBAAA;EACA,WAAA;CACA","file":"StepProgression.vue","sourcesContent":["<template>\n  <div class=\"steps\">\n    <div class=\"steps-line\"></div>\n    <div \n      v-for=\"step in steps\" \n      :key=\"step\"\n      :style=\"calculateStepColor(step)\"\n      :v-model=\"currentStep + step\" \n      class=\"step\">\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  name: 'StepProgression',\n\n  props: {\n    steps: {\n      type: Number,\n      default: 3\n    },\n    currentStep: {\n      type: Number,\n      default: 1\n    },\n    currentStepColor: {\n      type: String,\n      default: '#1c61b2'\n    },\n    defaultColor: {\n      type: String,\n      default: '#e7eaf0'\n    }\n  },\n\n  methods: {\n    calculateStepColor(step) {\n      if (step === this.currentStep) {\n        return {\n          backgroundColor: this.currentStepColor \n        }\n      } else {\n        return {\n          backgroundColor: this.defaultColor\n        }\n      }\n    }\n  }\n}\n</script>\n\n<style scoped>\n.steps {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n}\n\n.steps-line {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 2px;\n  background-color: #e8eaf1;\n}\n\n.step {\n  justify-content: center;\n  align-items: center;\n  height: 32px;\n  width: 32px;\n  border-radius: 50%;\n  z-index: 2;\n}\n</style>\n"]}, media: undefined });
+    inject("data-v-fe90ffc0_0", { source: "\n.steps[data-v-fe90ffc0] {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n}\n.steps-line[data-v-fe90ffc0] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 2px;\n  background-color: #e8eaf1;\n}\n.step[data-v-fe90ffc0] {\n  justify-content: center;\n  align-items: center;\n  height: 32px;\n  width: 32px;\n  border-radius: 50%;\n  z-index: 2;\n}\n", map: {"version":3,"sources":["/Users/paytonburdette/Documents/projects/vue-step-progression/src/StepProgression.vue"],"names":[],"mappings":";AAwDA;EACA,mBAAA;EACA,cAAA;EACA,+BAAA;CACA;AAEA;EACA,mBAAA;EACA,SAAA;EACA,QAAA;EACA,SAAA;EACA,YAAA;EACA,0BAAA;CACA;AAEA;EACA,wBAAA;EACA,oBAAA;EACA,aAAA;EACA,YAAA;EACA,mBAAA;EACA,WAAA;CACA","file":"StepProgression.vue","sourcesContent":["<template>\n  <section>\n    <div class=\"steps\">\n      <div class=\"steps-line\"></div>\n      <div \n        v-for=\"step in steps\" \n        :key=\"step\"\n        :style=\"calculateStepColor(step)\"\n        :v-model=\"currentStep + step\" \n        class=\"step\">\n      </div>\n    </div>\n    <slot></slot>\n  </section>\n</template>\n\n<script>\nexport default {\n  name: 'StepProgression',\n\n  props: {\n    steps: {\n      type: Number,\n      default: 3\n    },\n    currentStep: {\n      type: Number,\n      default: 1\n    },\n    currentStepColor: {\n      type: String,\n      default: '#1c61b2'\n    },\n    defaultColor: {\n      type: String,\n      default: '#e7eaf0'\n    }\n  },\n\n  methods: {\n    calculateStepColor(step) {\n      if (step === this.currentStep) {\n        return {\n          backgroundColor: this.currentStepColor \n        }\n      } else {\n        return {\n          backgroundColor: this.defaultColor\n        }\n      }\n    }\n  }\n}\n</script>\n\n<style scoped>\n.steps {\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n}\n\n.steps-line {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 2px;\n  background-color: #e8eaf1;\n}\n\n.step {\n  justify-content: center;\n  align-items: center;\n  height: 32px;\n  width: 32px;\n  border-radius: 50%;\n  z-index: 2;\n}\n</style>\n"]}, media: undefined });
 
   };
   /* scoped */
-  var __vue_scope_id__ = "data-v-21cfb75c";
+  var __vue_scope_id__ = "data-v-fe90ffc0";
   /* module identifier */
   var __vue_module_identifier__ = undefined;
   /* functional template */
