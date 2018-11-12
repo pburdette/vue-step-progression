@@ -13,7 +13,6 @@
         class="step">
       </div>
     </div>
-    <button @click="increaseStep()" type="button">Increase Step</button>
   </section>
 </template>
 
