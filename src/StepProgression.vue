@@ -10,7 +10,6 @@
         class="step">
       </div>
     </div>
-    <slot></slot>
   </section>
 </template>
 
