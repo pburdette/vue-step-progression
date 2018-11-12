@@ -7,7 +7,7 @@
 
 
 ## See the demo
-[![Edit vue-step-progression demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/m46n5rwy3j)
+Coming soon...
 
 
 ## Basic Usage
