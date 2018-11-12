@@ -23,7 +23,7 @@ export default {
   props: {
     steps: {
       type: Number,
-      default: 5
+      default: 3
     },
     currentStep: {
       type: Number,
