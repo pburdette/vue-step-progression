@@ -1,7 +1,7 @@
 {
   "name": "vue-step-progression",
   "version": "1.0.8",
-  "description": "",
+  "description": "A Vue component to help you build a multi-step form or other processes",
   "main": "dist/StepProgression.umd.js",
   "module": "dist/StepProgression.esm.js",
   "unpkg": "dist/StepProgression.min.js",
@@ -27,5 +27,17 @@
     "rollup-plugin-vue": "^4.3.0",
     "vue": "^2.5.16",
     "vue-template-compiler": "^2.5.16"
-  }
+  },
+  "author": "Payton Burdette <paytonburd@gmail.com> (https://paytonburdette.com/)",
+  "homepage": "https://github.com/beardedpayton/vue-step-progression#readme",
+  "bugs": {
+    "url": "https://github.com/beardedpayton/vue-step-progression/issues"
+  },
+  "keywords": [
+    "vue",
+    "multi step form",
+    "component",
+    "step progresssion",
+    "steps"
+  ]
 }
