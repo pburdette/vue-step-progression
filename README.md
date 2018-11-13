@@ -3,6 +3,8 @@
 
 Easily build a multi-step checkout process with the vue-step-progression component.
 
+![GIF DEMO](https://media.giphy.com/media/XtcLb1TPB05aIrKWKh/giphy.gif)
+
 ## Install
 
 ``` npm i vue-step-progression ```
