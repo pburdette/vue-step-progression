@@ -57,9 +57,6 @@ export default {
         }
       }
       
-    },
-    increaseStep() {
-      this.currentStep++
     }
   },
 
