@@ -13,6 +13,7 @@
         class="step">
       </div>
     </div>
+    <button @click="increaseStep()">Click me</button>
   </section>
 </template>
 
@@ -76,8 +77,10 @@ export default {
           // increase intialWidth by itself after first step change
           this.widthInPercent = intialWidth + intialWidth
       } else {
-        this.$refs.stepProgressionLine.style = `width: ${this.widthInPercent}%`
-        this.widthInPercent = this.widthInPercent + intialWidth
+        if(currentStep <= this.steps) {
+          this.$refs.stepProgressionLine.style = `width: ${this.widthInPercent}%`
+          this.widthInPercent = this.widthInPercent + intialWidth
+        }
       }
     }
   }
