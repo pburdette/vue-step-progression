@@ -1,6 +1,6 @@
 {
   "name": "vue-step-progression",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A Vue component to help you build a multi-step form or other processes",
   "main": "dist/StepProgression.umd.js",
   "module": "dist/StepProgression.esm.js",
